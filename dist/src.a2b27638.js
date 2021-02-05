@@ -68992,7 +68992,7 @@ var _default = ["$http", function ($http) {
   };
 }];
 exports.default = _default;
-},{}],"src/billingPeriod.service.js":[function(require,module,exports) {
+},{}],"src/billing.service.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -69002,7 +69002,8 @@ exports.default = void 0;
 var _default = [function () {
   this.billing = function () {
     return {
-      billingPeriod: 'Välj år'
+      billingPeriod: 'Välj år',
+      headerTypo: 'Hybrid App width AngularJS & React'
     };
   };
 }];
@@ -69037,7 +69038,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var BillingPeriodSelect = function BillingPeriodSelect(props) {
   var billingPeriods = props.billingPeriods,
       onSelectBillingPeriod = props.onSelectBillingPeriod;
-  var translationService = window.$injector.get('billingPeriodService');
+  var translationService = window.$injector.get('billingService');
   var translation = translationService.billing();
 
   var selectBillingPeriod = function selectBillingPeriod(event) {
@@ -89986,6 +89987,8 @@ var useStyles = (0, _styles.makeStyles)(function (theme) {
 exports.useStyles = useStyles;
 
 var HeaderComp = function HeaderComp() {
+  var translationService = window.$injector.get('billingService');
+  var translation = translationService.billing();
   var classes = useStyles();
 
   var _React$useState = _react.default.useState(null),
@@ -90088,9 +90091,8 @@ var HeaderComp = function HeaderComp() {
     "aria-label": "open drawer"
   }, /*#__PURE__*/_react.default.createElement(_Menu2.default, null)), /*#__PURE__*/_react.default.createElement(_Typography.default, {
     className: classes.title,
-    variant: "h6",
     noWrap: true
-  }, "Material-UI"), /*#__PURE__*/_react.default.createElement("div", {
+  }, translation.headerTypo), /*#__PURE__*/_react.default.createElement("div", {
     className: classes.search
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: classes.searchIcon
@@ -90178,7 +90180,7 @@ var _react2angular = require("react2angular");
 
 var _billApiService = _interopRequireDefault(require("./bill-api.service.js"));
 
-var _billingPeriod = _interopRequireDefault(require("./billingPeriod.service"));
+var _billing = _interopRequireDefault(require("./billing.service"));
 
 var _billComponent = _interopRequireDefault(require("./bill.component.js"));
 
@@ -90196,9 +90198,9 @@ function runConfig($injector) {
   window.$injector = $injector;
 }
 
-_angular.default.module('billViewer', []).service('billingPeriodService', _billingPeriod.default).service('billApiService', _billApiService.default).component('bill', _billComponent.default) // .component('billingPeriodSelect', billingPeriodSelect)
+_angular.default.module('billViewer', []).service('billingService', _billing.default).service('billApiService', _billApiService.default).component('bill', _billComponent.default) // .component('billingPeriodSelect', billingPeriodSelect)
 .component('billingPeriodSelect', (0, _react2angular.react2angular)(_BillingPeriodSelect.default, ['billingPeriods', 'onSelectBillingPeriod'])).component('headerComp', (0, _react2angular.react2angular)(_HeaderComp.default, [])).component('homePage', _homePageComponent.default).run(runConfig);
-},{"angular":"node_modules/angular/index.js","react2angular":"node_modules/react2angular/index.js","./bill-api.service.js":"src/bill-api.service.js","./billingPeriod.service":"src/billingPeriod.service.js","./bill.component.js":"src/bill.component.js","./BillingPeriodSelect.jsx":"src/BillingPeriodSelect.jsx","./HeaderComp":"src/HeaderComp.jsx","./home-page.component.js":"src/home-page.component.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"angular":"node_modules/angular/index.js","react2angular":"node_modules/react2angular/index.js","./bill-api.service.js":"src/bill-api.service.js","./billing.service":"src/billing.service.js","./bill.component.js":"src/bill.component.js","./BillingPeriodSelect.jsx":"src/BillingPeriodSelect.jsx","./HeaderComp":"src/HeaderComp.jsx","./home-page.component.js":"src/home-page.component.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

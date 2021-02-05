@@ -81,6 +81,9 @@ export const useStyles = makeStyles((theme) => ({
 
 const HeaderComp = () => {
 
+  const translationService = window.$injector.get('billingService');
+  const translation = translationService.billing();
+
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -174,8 +177,8 @@ const HeaderComp = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
+          <Typography className={classes.title}  noWrap>
+            {translation.headerTypo} 
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

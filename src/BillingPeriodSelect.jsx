@@ -3,7 +3,7 @@ import React from 'react'
 export  const BillingPeriodSelect = (props) => {
   const { billingPeriods, onSelectBillingPeriod } = props;
 
-  const translationService = window.$injector.get('billingPeriodService');
+  const translationService = window.$injector.get('billingService');
   const translation = translationService.billing();
 
   const selectBillingPeriod = (event) => {
