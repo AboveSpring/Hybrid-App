@@ -2,13 +2,19 @@ import angular from 'angular';
 import { react2angular } from 'react2angular';
 
 import billApiService from './bill-api.service.js';
+import billingPeriodService from './billingPeriod.service';
 import bill from './bill.component.js';
-// import billingPeriodSelect from './billing-period-select.component.js';
 import BillingPeriodSelect from './BillingPeriodSelect.jsx';
 import HeaderComp from './HeaderComp';
 import homePage from './home-page.component.js';
 
+runConfig.$inject = ['$injector'];
+function runConfig($injector) {
+  window.$injector = $injector;
+}
+
 angular.module('billViewer', [])
+  .service('billingPeriodService', billingPeriodService)
   .service('billApiService', billApiService)
   .component('bill', bill)
   // .component('billingPeriodSelect', billingPeriodSelect)
@@ -17,4 +23,5 @@ angular.module('billViewer', [])
     'onSelectBillingPeriod'
     ]))
   .component('headerComp', react2angular(HeaderComp, []))
-  .component('homePage', homePage);
+  .component('homePage', homePage)
+  .run(runConfig);

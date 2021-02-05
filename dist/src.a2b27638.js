@@ -68992,6 +68992,21 @@ var _default = ["$http", function ($http) {
   };
 }];
 exports.default = _default;
+},{}],"src/billingPeriod.service.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = [function () {
+  this.billing = function () {
+    return {
+      billingPeriod: 'Välj år'
+    };
+  };
+}];
+exports.default = _default;
 },{}],"src/bill.component.js":[function(require,module,exports) {
 "use strict";
 
@@ -69022,12 +69037,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var BillingPeriodSelect = function BillingPeriodSelect(props) {
   var billingPeriods = props.billingPeriods,
       onSelectBillingPeriod = props.onSelectBillingPeriod;
+  var translationService = window.$injector.get('billingPeriodService');
+  var translation = translationService.billing();
 
   var selectBillingPeriod = function selectBillingPeriod(event) {
     onSelectBillingPeriod(event.target.value);
   };
 
-  return /*#__PURE__*/_react.default.createElement("select", {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("label", null, translation.billingPeriod, ":"), /*#__PURE__*/_react.default.createElement("select", {
     className: "form-control",
     onChange: selectBillingPeriod
   }, billingPeriods.map(function (billingPeriod) {
@@ -69035,7 +69052,7 @@ var BillingPeriodSelect = function BillingPeriodSelect(props) {
       key: billingPeriod,
       value: billingPeriod
     }, " ", billingPeriod, " ");
-  }));
+  })));
 };
 
 exports.BillingPeriodSelect = BillingPeriodSelect;
@@ -90161,6 +90178,8 @@ var _react2angular = require("react2angular");
 
 var _billApiService = _interopRequireDefault(require("./bill-api.service.js"));
 
+var _billingPeriod = _interopRequireDefault(require("./billingPeriod.service"));
+
 var _billComponent = _interopRequireDefault(require("./bill.component.js"));
 
 var _BillingPeriodSelect = _interopRequireDefault(require("./BillingPeriodSelect.jsx"));
@@ -90171,10 +90190,15 @@ var _homePageComponent = _interopRequireDefault(require("./home-page.component.j
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import billingPeriodSelect from './billing-period-select.component.js';
-_angular.default.module('billViewer', []).service('billApiService', _billApiService.default).component('bill', _billComponent.default) // .component('billingPeriodSelect', billingPeriodSelect)
-.component('billingPeriodSelect', (0, _react2angular.react2angular)(_BillingPeriodSelect.default, ['billingPeriods', 'onSelectBillingPeriod'])).component('headerComp', (0, _react2angular.react2angular)(_HeaderComp.default, [])).component('homePage', _homePageComponent.default);
-},{"angular":"node_modules/angular/index.js","react2angular":"node_modules/react2angular/index.js","./bill-api.service.js":"src/bill-api.service.js","./bill.component.js":"src/bill.component.js","./BillingPeriodSelect.jsx":"src/BillingPeriodSelect.jsx","./HeaderComp":"src/HeaderComp.jsx","./home-page.component.js":"src/home-page.component.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+runConfig.$inject = ['$injector'];
+
+function runConfig($injector) {
+  window.$injector = $injector;
+}
+
+_angular.default.module('billViewer', []).service('billingPeriodService', _billingPeriod.default).service('billApiService', _billApiService.default).component('bill', _billComponent.default) // .component('billingPeriodSelect', billingPeriodSelect)
+.component('billingPeriodSelect', (0, _react2angular.react2angular)(_BillingPeriodSelect.default, ['billingPeriods', 'onSelectBillingPeriod'])).component('headerComp', (0, _react2angular.react2angular)(_HeaderComp.default, [])).component('homePage', _homePageComponent.default).run(runConfig);
+},{"angular":"node_modules/angular/index.js","react2angular":"node_modules/react2angular/index.js","./bill-api.service.js":"src/bill-api.service.js","./billingPeriod.service":"src/billingPeriod.service.js","./bill.component.js":"src/bill.component.js","./BillingPeriodSelect.jsx":"src/BillingPeriodSelect.jsx","./HeaderComp":"src/HeaderComp.jsx","./home-page.component.js":"src/home-page.component.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
