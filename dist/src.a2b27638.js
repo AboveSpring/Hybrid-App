@@ -69023,7 +69023,7 @@ var _default = {
   }
 };
 exports.default = _default;
-},{}],"src/BillingPeriodSelect.jsx":[function(require,module,exports) {
+},{}],"src/React/BillingPeriodSelect.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -89868,7 +89868,7 @@ var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("pa
 }), 'MoreVert');
 
 exports.default = _default;
-},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/interopRequireWildcard":"node_modules/@babel/runtime/helpers/interopRequireWildcard.js","react":"node_modules/react/index.js","./utils/createSvgIcon":"node_modules/@material-ui/icons/utils/createSvgIcon.js"}],"src/HeaderComp.jsx":[function(require,module,exports) {
+},{"@babel/runtime/helpers/interopRequireDefault":"node_modules/@babel/runtime/helpers/interopRequireDefault.js","@babel/runtime/helpers/interopRequireWildcard":"node_modules/@babel/runtime/helpers/interopRequireWildcard.js","react":"node_modules/react/index.js","./utils/createSvgIcon":"node_modules/@material-ui/icons/utils/createSvgIcon.js"}],"src/React/HeaderComp.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -90184,9 +90184,9 @@ var _billing = _interopRequireDefault(require("./billing.service"));
 
 var _billComponent = _interopRequireDefault(require("./bill.component.js"));
 
-var _BillingPeriodSelect = _interopRequireDefault(require("./BillingPeriodSelect.jsx"));
+var _BillingPeriodSelect = _interopRequireDefault(require("./React/BillingPeriodSelect"));
 
-var _HeaderComp = _interopRequireDefault(require("./HeaderComp"));
+var _HeaderComp = _interopRequireDefault(require("./React/HeaderComp"));
 
 var _homePageComponent = _interopRequireDefault(require("./home-page.component.js"));
 
@@ -90198,9 +90198,8 @@ function runConfig($injector) {
   window.$injector = $injector;
 }
 
-_angular.default.module('billViewer', []).service('billingService', _billing.default).service('billApiService', _billApiService.default).component('bill', _billComponent.default) // .component('billingPeriodSelect', billingPeriodSelect)
-.component('billingPeriodSelect', (0, _react2angular.react2angular)(_BillingPeriodSelect.default, ['billingPeriods', 'onSelectBillingPeriod'])).component('headerComp', (0, _react2angular.react2angular)(_HeaderComp.default, [])).component('homePage', _homePageComponent.default).run(runConfig);
-},{"angular":"node_modules/angular/index.js","react2angular":"node_modules/react2angular/index.js","./bill-api.service.js":"src/bill-api.service.js","./billing.service":"src/billing.service.js","./bill.component.js":"src/bill.component.js","./BillingPeriodSelect.jsx":"src/BillingPeriodSelect.jsx","./HeaderComp":"src/HeaderComp.jsx","./home-page.component.js":"src/home-page.component.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+_angular.default.module('billViewer', []).service('billingService', _billing.default).service('billApiService', _billApiService.default).component('bill', _billComponent.default).component('billingPeriodSelect', (0, _react2angular.react2angular)(_BillingPeriodSelect.default, ['billingPeriods', 'onSelectBillingPeriod'])).component('headerComp', (0, _react2angular.react2angular)(_HeaderComp.default, [])).component('homePage', _homePageComponent.default).run(runConfig);
+},{"angular":"node_modules/angular/index.js","react2angular":"node_modules/react2angular/index.js","./bill-api.service.js":"src/bill-api.service.js","./billing.service":"src/billing.service.js","./bill.component.js":"src/bill.component.js","./React/BillingPeriodSelect":"src/React/BillingPeriodSelect.jsx","./React/HeaderComp":"src/React/HeaderComp.jsx","./home-page.component.js":"src/home-page.component.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
