@@ -69023,152 +69023,7 @@ var _default = {
   }
 };
 exports.default = _default;
-},{}],"src/React/BillingPeriodSelect.jsx":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = exports.BillingPeriodSelect = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var BillingPeriodSelect = function BillingPeriodSelect(props) {
-  var billingPeriods = props.billingPeriods,
-      onSelectBillingPeriod = props.onSelectBillingPeriod;
-  var translationService = window.$injector.get('billingService');
-  var translation = translationService.billing();
-
-  var selectBillingPeriod = function selectBillingPeriod(event) {
-    onSelectBillingPeriod(event.target.value);
-  };
-
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("label", null, translation.billingPeriod, ":"), /*#__PURE__*/_react.default.createElement("select", {
-    className: "form-control",
-    onChange: selectBillingPeriod
-  }, billingPeriods.map(function (billingPeriod) {
-    return /*#__PURE__*/_react.default.createElement("option", {
-      key: billingPeriod,
-      value: billingPeriod
-    }, " ", billingPeriod, " ");
-  })));
-};
-
-exports.BillingPeriodSelect = BillingPeriodSelect;
-var _default = BillingPeriodSelect;
-exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"node_modules/@material-ui/utils/esm/chainPropTypes.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = chainPropTypes;
-
-function chainPropTypes(propType1, propType2) {
-  if ("development" === 'production') {
-    return function () {
-      return null;
-    };
-  }
-
-  return function validate() {
-    return propType1.apply(void 0, arguments) || propType2.apply(void 0, arguments);
-  };
-}
-},{}],"node_modules/@babel/runtime/helpers/esm/extends.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = _extends;
-
-function _extends() {
-  exports.default = _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-},{}],"node_modules/@babel/runtime/helpers/esm/typeof.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = _typeof;
-
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    exports.default = _typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    exports.default = _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-},{}],"node_modules/@material-ui/utils/esm/deepmerge.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.isPlainObject = isPlainObject;
-exports.default = deepmerge;
-
-var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
-
-var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/typeof"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function isPlainObject(item) {
-  return item && (0, _typeof2.default)(item) === 'object' && item.constructor === Object;
-}
-
-function deepmerge(target, source) {
-  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {
-    clone: true
-  };
-  var output = options.clone ? (0, _extends2.default)({}, target) : target;
-
-  if (isPlainObject(target) && isPlainObject(source)) {
-    Object.keys(source).forEach(function (key) {
-      // Avoid prototype pollution
-      if (key === '__proto__') {
-        return;
-      }
-
-      if (isPlainObject(source[key]) && key in target) {
-        output[key] = deepmerge(target[key], source[key], options);
-      } else {
-        output[key] = source[key];
-      }
-    });
-  }
-
-  return output;
-}
-},{"@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/typeof":"node_modules/@babel/runtime/helpers/esm/typeof.js"}],"node_modules/react-is/cjs/react-is.development.js":[function(require,module,exports) {
+},{}],"node_modules/react-is/cjs/react-is.development.js":[function(require,module,exports) {
 /** @license React v17.0.1
  * react-is.development.js
  *
@@ -70184,7 +70039,158 @@ if ("development" !== 'production') {
   // http://fb.me/prop-types-in-prod
   module.exports = require('./factoryWithThrowingShims')();
 }
-},{"react-is":"node_modules/react-is/index.js","./factoryWithTypeCheckers":"node_modules/prop-types/factoryWithTypeCheckers.js"}],"node_modules/@material-ui/utils/esm/elementAcceptingRef.js":[function(require,module,exports) {
+},{"react-is":"node_modules/react-is/index.js","./factoryWithTypeCheckers":"node_modules/prop-types/factoryWithTypeCheckers.js"}],"src/React/BillingPeriodSelect.jsx":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.BillingPeriodSelect = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var BillingPeriodSelect = function BillingPeriodSelect(props) {
+  var billingPeriods = props.billingPeriods,
+      onSelectBillingPeriod = props.onSelectBillingPeriod;
+  var translationService = window.$injector.get('billingService');
+  var translation = translationService.billing();
+
+  var selectBillingPeriod = function selectBillingPeriod(event) {
+    onSelectBillingPeriod(event.target.value);
+  };
+
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("label", null, translation.billingPeriod, ":"), /*#__PURE__*/_react.default.createElement("select", {
+    className: "form-control",
+    onChange: selectBillingPeriod
+  }, billingPeriods.map(function (billingPeriod) {
+    return /*#__PURE__*/_react.default.createElement("option", {
+      key: billingPeriod,
+      value: billingPeriod
+    }, " ", billingPeriod, " ");
+  })));
+};
+
+exports.BillingPeriodSelect = BillingPeriodSelect;
+BillingPeriodSelect.propTypes = {
+  billingPeriods: _propTypes.default.array,
+  onSelectBillingPeriod: _propTypes.default.func
+};
+var _default = BillingPeriodSelect;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","prop-types":"node_modules/prop-types/index.js"}],"node_modules/@material-ui/utils/esm/chainPropTypes.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = chainPropTypes;
+
+function chainPropTypes(propType1, propType2) {
+  if ("development" === 'production') {
+    return function () {
+      return null;
+    };
+  }
+
+  return function validate() {
+    return propType1.apply(void 0, arguments) || propType2.apply(void 0, arguments);
+  };
+}
+},{}],"node_modules/@babel/runtime/helpers/esm/extends.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _extends;
+
+function _extends() {
+  exports.default = _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+},{}],"node_modules/@babel/runtime/helpers/esm/typeof.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = _typeof;
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    exports.default = _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    exports.default = _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+},{}],"node_modules/@material-ui/utils/esm/deepmerge.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isPlainObject = isPlainObject;
+exports.default = deepmerge;
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/extends"));
+
+var _typeof2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/typeof"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function isPlainObject(item) {
+  return item && (0, _typeof2.default)(item) === 'object' && item.constructor === Object;
+}
+
+function deepmerge(target, source) {
+  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {
+    clone: true
+  };
+  var output = options.clone ? (0, _extends2.default)({}, target) : target;
+
+  if (isPlainObject(target) && isPlainObject(source)) {
+    Object.keys(source).forEach(function (key) {
+      // Avoid prototype pollution
+      if (key === '__proto__') {
+        return;
+      }
+
+      if (isPlainObject(source[key]) && key in target) {
+        output[key] = deepmerge(target[key], source[key], options);
+      } else {
+        output[key] = source[key];
+      }
+    });
+  }
+
+  return output;
+}
+},{"@babel/runtime/helpers/esm/extends":"node_modules/@babel/runtime/helpers/esm/extends.js","@babel/runtime/helpers/esm/typeof":"node_modules/@babel/runtime/helpers/esm/typeof.js"}],"node_modules/@material-ui/utils/esm/elementAcceptingRef.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -90148,7 +90154,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var template = "\n  <div class=\"container\">\n  <headerComp></headerComp>\n\n\t  <h3>\xD6verblick R\xE4kningar</h3>\n\n\t  <billing-period-select\n      billing-periods=\"$ctrl.billingPeriods\"\n      on-select-billing-period=\"$ctrl.fetchBill\"\n    >\n    </billing-period-select>\n\n\t  <div ng-show=\"$ctrl.isBillFetching\">\n\t\t  laddar...\n\t  </div>\n\t  <div ng-show=\"!$ctrl.isBillFetching\">\n\t\t  <bill bill=\"$ctrl.selectedBill\">\n\t\t  </bill>\n\t  </div>\n  </div>\n";
+var template = "\n  <div class=\"container\">\n  <headerComp></headerComp>\n\t  <h3>\xD6verblick R\xE4kningar</h3>\n\t  <billing-period-select\n      billing-periods=\"$ctrl.billingPeriods\"\n      on-select-billing-period=\"$ctrl.fetchBill\"\n    >\n    </billing-period-select>\n\t  <div ng-show=\"$ctrl.isBillFetching\">\n\t\t  laddar...\n\t  </div>\n\t  <div ng-show=\"!$ctrl.isBillFetching\">\n\t\t  <bill bill=\"$ctrl.selectedBill\">\n\t\t  </bill>\n\t  </div>\n  </div>\n";
 var controller = ['billApiService', function (billApiService) {
   var _this = this;
 
@@ -90198,7 +90204,7 @@ function runConfig($injector) {
   window.$injector = $injector;
 }
 
-_angular.default.module('billViewer', []).service('billingService', _billing.default).service('billApiService', _billApiService.default).component('bill', _billComponent.default).component('billingPeriodSelect', (0, _react2angular.react2angular)(_BillingPeriodSelect.default, ['billingPeriods', 'onSelectBillingPeriod'])).component('headerComp', (0, _react2angular.react2angular)(_HeaderComp.default, [])).component('homePage', _homePageComponent.default).run(runConfig);
+_angular.default.module('billViewer', []).service('billingService', _billing.default).service('billApiService', _billApiService.default).component('bill', _billComponent.default).component('billingPeriodSelect', (0, _react2angular.react2angular)(_BillingPeriodSelect.default)).component('headerComp', (0, _react2angular.react2angular)(_HeaderComp.default)).component('homePage', _homePageComponent.default).run(runConfig);
 },{"angular":"node_modules/angular/index.js","react2angular":"node_modules/react2angular/index.js","./bill-api.service.js":"src/bill-api.service.js","./billing.service":"src/billing.service.js","./bill.component.js":"src/bill.component.js","./React/BillingPeriodSelect":"src/React/BillingPeriodSelect.jsx","./React/HeaderComp":"src/React/HeaderComp.jsx","./home-page.component.js":"src/home-page.component.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

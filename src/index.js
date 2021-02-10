@@ -17,10 +17,7 @@ angular.module('billViewer', [])
   .service('billingService', billingService)
   .service('billApiService', billApiService)
   .component('bill', bill)
-  .component('billingPeriodSelect', react2angular(BillingPeriodSelect, [
-    'billingPeriods',
-    'onSelectBillingPeriod'
-    ]))
-  .component('headerComp', react2angular(HeaderComp, []))
+  .component('billingPeriodSelect', react2angular(BillingPeriodSelect))
+  .component('headerComp', react2angular(HeaderComp))
   .component('homePage', homePage)
   .run(runConfig);

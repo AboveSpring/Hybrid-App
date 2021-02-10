@@ -1,15 +1,12 @@
 const template = `
   <div class="container">
   <headerComp></headerComp>
-
 	  <h3>Överblick Räkningar</h3>
-
 	  <billing-period-select
       billing-periods="$ctrl.billingPeriods"
       on-select-billing-period="$ctrl.fetchBill"
     >
     </billing-period-select>
-
 	  <div ng-show="$ctrl.isBillFetching">
 		  laddar...
 	  </div>

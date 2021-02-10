@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 export  const BillingPeriodSelect = (props) => {
   const { billingPeriods, onSelectBillingPeriod } = props;
@@ -21,5 +22,12 @@ export  const BillingPeriodSelect = (props) => {
     </div>
   )
 }
+
+BillingPeriodSelect.propTypes = {
+  billingPeriods: PropTypes.array,
+  onSelectBillingPeriod: PropTypes.func
+};
+
 export default BillingPeriodSelect
+
 
